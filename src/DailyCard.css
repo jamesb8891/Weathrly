@@ -1,5 +1,7 @@
-/* article {
+.daily-card {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
   
-  border: 1px solid black;
-  border-radius: 5px;
-} */
+  
+}

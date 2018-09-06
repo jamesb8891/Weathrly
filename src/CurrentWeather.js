@@ -1,13 +1,16 @@
 import React from 'react';
+
 import Controller from './Controller';
+import './CurrentWeather.css';
 
 
 const CurrentWeather = (props) => {
   console.log(props.weather);
   return (
+    
     <header>
       <article className='left-header'>
-        <p>{props.weather.current_observation.observation_time_rfc822}</p>
+        <p>{props.weather.current_observation.observation_time_rfc822.slice(0, -5)}</p>
         <Controller />
       </article>
       <article className='right-header'>
