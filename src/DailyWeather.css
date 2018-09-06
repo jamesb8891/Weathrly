@@ -1,0 +1,4 @@
+.hourly {
+  display: flex;
+  flex-wrap: wrap; 
+}

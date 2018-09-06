@@ -6,11 +6,11 @@ const CurrentWeather = (props) => {
   console.log(props.weather);
   return (
     <header>
-      <article>
+      <article className='left-header'>
         <p>{props.weather.current_observation.observation_time_rfc822}</p>
         <Controller />
       </article>
-      <article>
+      <article className='right-header'>
         <img src={props.weather.current_observation.icon_url} alt='Cloudy'/>
         <p>{props.weather.current_observation.temp_f.toFixed(0)}˚</p>
       </article>
