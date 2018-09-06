@@ -2,6 +2,11 @@
   text-align: center;
   font-family: 'Comfortaa', cursive;
   font-weight: 700;
+  font-size: 1rem;
+  background-image: url('./blur.jpg');
+  height: 100vh;
+  filter: brightness(1.10);
+  text-shadow: 4px 4px 15px steelblue;
 }
 /* 
 .App-logo {

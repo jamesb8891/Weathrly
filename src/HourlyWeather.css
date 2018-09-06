@@ -1,5 +1,5 @@
-.daily {
+.hourly {
   display: flex;
-  flex-direction: column;
-  
+  justify-content: space-around;
+  margin: 50px 0 50px 0;
 }

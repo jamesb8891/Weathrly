@@ -1,5 +1,15 @@
-/* article {
-  
-  border: 1px solid black;
-  border-radius: 5px;
-} */
+.hour-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  width: 150px;
+  height: 200px;
+}
+
+.hour-icon {
+  height: 45px;
+  width: 45px;
+}
+
+.hour-temp {
+  font-size: 1.2rem;
+}

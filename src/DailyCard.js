@@ -7,8 +7,10 @@ const DailyCard = (props) => {
   return (
     <article class="daily-card">
       <p>{props.weather.date.weekday}</p>
-      <img src={props.weather.icon_url}/>
-      <p>{props.weather.conditions}</p>
+      <div className='daily-cond'>
+        <img src={props.weather.icon_url}/>
+        <p>{props.weather.conditions}</p>
+      </div>
       <p>{props.weather.high.fahrenheit}˚ / {props.weather.low.fahrenheit}˚</p>
     </article>
   )

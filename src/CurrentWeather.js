@@ -9,7 +9,7 @@ const CurrentWeather = (props) => {
   return (
     <header>
       <article className='left-header'>
-        <p className='time'>{props.weather.current_observation.observation_time_rfc822.slice(0, -5)}</p>
+        <p className='time'>{props.weather.current_observation.observation_time_rfc822.slice(0, -9)}</p>
         <Controller />
       </article>
       <article className='right-header'>
