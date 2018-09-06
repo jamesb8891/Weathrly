@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import data from './Data';
+
 import './App.css';
-import TodayWeather from './TodayWeather';
+import HourlyWeather from './HourlyWeather';
+import DailyWeather from './DailyWeather';
+import CurrentWeather from './CurrentWeather';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      weather: data
+    }
+  }
+
+  
+
   render() {
     return (
       <div className='App'>
-        <section className='header'>
-          <TodayWeather weather={data}/>
-        </section>
-        <section className='HourForecast'>
-          {/* <HourForecast /> */}
-        </section>
-        <section className='DayForecast'>
-          {/* <DayForecast /> */}
-        </section>
+        <CurrentWeather weather={this.state.weather}/>
+        <HourlyWeather 
+          weather={this.state.weather.hourly_forecast}
+        />
+        <DailyWeather 
+          weather={this.state.weather.forecast.simpleforecast.forecastday}
+        />
       </div>
     );
   }
