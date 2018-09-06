@@ -5,7 +5,7 @@ import HourCard from './HourCard';
 
 const HourlyWeather = (props) => {
   return (
-    <section>
+    <section className='hourly'>
       {
         props.weather.slice( 0, 7).map((forecast, index) => {
           return <HourCard forecast={forecast} key={index} />
