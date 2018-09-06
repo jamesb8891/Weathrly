@@ -1,13 +1,33 @@
 header {
   display: flex;
+  align-content: center;
   justify-content: space-between;
+  padding-top: 10px;
 }
 
 .left-header {
+  align-self: center;
   margin-left: 50px;
+  align-content: center;
 }
 
 .right-header {
+  align-self: center;
   display: flex;
   margin-right: 50px;
+}
+
+.time {
+
+}
+
+.big-temp {
+  font-size: 4rem;
+  margin: 10px 0 0 10px;
+}
+
+.big-icon {
+  height: 90px;
+  width: 90px;
+  align-self: center;
 }
