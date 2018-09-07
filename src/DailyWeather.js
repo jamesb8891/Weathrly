@@ -5,7 +5,6 @@ import './DailyWeather.css';
 
 
 const DailyWeather = (props) => {
-  console.log(props.weather);
   return (
     <section className='daily'>
       {

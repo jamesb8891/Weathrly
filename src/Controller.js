@@ -5,18 +5,41 @@ class Controller extends Component {
   constructor() {
     super();
     this.state = {
-  
+      location: ''
     }
   }
   
 
   render() {
-    // add conditional to display form or current location.
     return (
-      <form>
-        <input type="text" placeholder="Enter new location"/>
-        <input type="submit" name="Submit"/>
+      <section>
+        {
+        !this.state.location &&
+        <form onSubmit={(event) => {
+          event.preventDefault();
+          console.log(event.target.elements.location.value)
+          this.setState({
+            location: event.target.elements.location.value
+        }, this.props.fetchWeather(event.target.elements.location.value))
+          // console.log(this.state.location)
+        }}
+        >
+        <input
+          type='text'
+          name='location'
+          placeholder='Enter your location'
+        />
+        <button>Enter</button>
       </form>
+        }
+
+        {
+        this.state.location &&
+        <article>
+          {this.state.location}
+        </article>
+        }
+      </section>
     );
   }
 }

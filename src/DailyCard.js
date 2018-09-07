@@ -5,7 +5,7 @@ import './DailyCard.css';
 
 const DailyCard = (props) => {
   return (
-    <article class="daily-card">
+    <article className="daily-card">
       <p className='daily-day'>{props.weather.date.weekday}</p>
       <div className='daily-cond'>
         <img className='daily-icon' src={props.weather.icon_url}/>
