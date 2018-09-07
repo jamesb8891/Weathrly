@@ -1,7 +1,22 @@
 .daily-card {
   display: flex;
-  justify-content: space-around;
-  flex-grow: 1;
+  /* justify-content: space-around; */
+  flex-wrap: wrap;
+  flex-grow: 1; 
   
-  
+}
+
+.daily-day, .daily-cond, .daily-temp {
+  width: 33%;
+  font-size: 1.2rem;
+}
+
+.daily-cond {
+  display: flex;
+  justify-content: center;
+}
+
+.daily-icon {
+  height: 40px;
+  width: 40px;
 }

@@ -1,5 +1,21 @@
-/* article {
-  
-  border: 1px solid black;
-  border-radius: 5px;
-} */
+.hour-card {
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 10px;
+  width: 150px;
+  height: 200px;
+  padding-top: 10px;
+}
+
+.hour-icon {
+  height: 45px;
+  width: 45px;
+}
+
+.hour-conditions {
+  font-size: .9rem;
+}
+
+.hour-temp {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
