@@ -4,32 +4,7 @@
   font-weight: 700;
   font-size: 1rem;
   background-image: url('./blur.jpg');
-  height: 100vh;
+  background-size: cover;
   filter: brightness(1.10);
-  text-shadow: 4px 4px 15px steelblue;
+  text-shadow: 2px 2px 12px steelblue;
 }
-/* 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
