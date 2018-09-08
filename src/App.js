@@ -1,59 +1,63 @@
 import React, { Component } from 'react';
-import mockData from './Data';
 
 import './App.css';
-import HourlyWeather from './HourlyWeather';
-import DailyWeather from './DailyWeather';
 import CurrentWeather from './CurrentWeather';
 import APIKey from './APIKey'
+import mockData from './Data';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      weather: mockData,
-      location: ''
+      location: '',
+      currentWeather: mockData.current_observation,
+      hourlyWeather: mockData.hourly_forecast,
+      hourlyPeriod: 0,
+      dailyWeather: mockData.forecast.simpleforecast,
+      dailyPeriod: 0,
     }
   }
 
-  // componentDidMount() {
-  //   // fetchWeather();
-  // }
+  componentDidMount() {
+   
 
-  fetchWeather = (location) => {
-    this.setState({
-      location
-    })
-    let fetchLocate = location.trim().split(',');
-    let state = fetchLocate[1];
-    let states = state.trim();
-
-    // console.log(`https://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${states}/${fetchLocate[0]}.json`)
-    fetch(`https://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${states}/${fetchLocate[0]}.json`)
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          weather: data
-        })
-      })
-      .catch(error => {
-        console.log(error);
-        throw new Error(error);
-      })
+    // fetchWeather();
   }
+
+  // fetchWeather = (location) => {
+  //   this.setState({
+  //     location
+  //   })
+  //   let fetchLocate = location.trim().split(',');
+  //   let state = fetchLocate[1];
+  //   let states = state.trim();
+
+  //   // console.log(`https://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${states}/${fetchLocate[0]}.json`)
+  //   fetch(`https://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${states}/${fetchLocate[0]}.json`)
+  //     .then(data => data.json())
+  //     .then(data => {
+  //       this.setState({
+  //         weather: data
+  //       })
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //       throw new Error(error);
+  //     })
+  // }
 
   
   render() {
     return (
-      <div className='App'>
-        <CurrentWeather fetchWeather={this.fetchWeather} weather={this.state.weather}/>
-        <HourlyWeather 
-          weather={this.state.weather.hourly_forecast}
+      // if this.state > 0 &&
+      <section className='App'>
+        <CurrentWeather 
+        fetchWeather={this.fetchWeather} 
+        currentWeather={this.state.currentWeather}
+        // hourlyWeather={this.state.hourlyWeather[this.state.hourlyPeriod]}
+        // dailyWeather={this.state.dailyWeather[this.state.dailyPeriod]}
         />
-        <DailyWeather 
-          weather={this.state.weather.forecast.simpleforecast.forecastday}
-        />
-      </div>
+      </section>
     );
   }
 }

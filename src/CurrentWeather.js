@@ -6,16 +6,25 @@ import './CurrentWeather.css';
 
 const CurrentWeather = (props) => {
   return (
+    <div>
+
     <header>
       <article className='left-header'>
-        <p className='time'>{props.weather.current_observation.observation_time_rfc822.slice(0, -9)}</p>
         <Controller fetchWeather={props.fetchWeather}/>
+        <p className='time'>{props.currentWeather.observation_time_rfc822.slice(0, -9)}</p>
       </article>
       <article className='right-header'>
-        <img className='big-icon'src={props.weather.current_observation.icon_url} alt='Cloudy'/>
-        <p className='big-temp'>{props.weather.current_observation.temp_f.toFixed(0)}˚</p>
+        <p className='big-temp'>{props.currentWeather.temp_f.toFixed(0)}˚</p>
       </article>
     </header>
+    <section className='icon'>
+
+      <img className='big-icon'src={props.currentWeather.icon_url} alt='Cloudy'/>
+    </section>
+    <section className='conditions'>
+
+    </section>
+    </div>
     // logo
     // Temp
   )
