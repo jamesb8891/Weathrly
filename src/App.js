@@ -32,6 +32,7 @@ class App extends Component {
     this.setState({
       location
     })
+    
     let fetchLocate = location.trim().split(',');
     let state = fetchLocate[1];
     let states = state.trim();
