@@ -6,6 +6,7 @@ input {
   font-weight: 400;
   padding-bottom: 0px;
   width: 650px;
+  padding-left: -1px;
 }
 
 input:focus,

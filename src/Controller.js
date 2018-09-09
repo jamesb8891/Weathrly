@@ -11,7 +11,6 @@ class Controller extends Component {
   }
 
 addLocation = () => {
-  console.log('hey');
   this.setState({
     location: ''
   })
@@ -27,8 +26,7 @@ addLocation = () => {
           event.preventDefault();
           this.setState({
             location: event.target.elements.location.value
-        }, )
-        // this.props.fetchWeather(event.target.elements.location.value)
+          }, this.props.fetchWeather(event.target.elements.location.value))
         }}
         >
         <input
