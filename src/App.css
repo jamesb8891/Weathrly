@@ -1,10 +1,67 @@
-.App {
-  text-align: center;
-  font-family: 'Comfortaa', cursive;
-  font-weight: 700;
-  font-size: 1rem;
-  background-image: url('./blur.jpg');
-  background-size: cover;
-  filter: brightness(1.10);
-  text-shadow: 2px 2px 12px steelblue;
+.main {
+  display: grid;
+  grid-template-rows: 225px 500px 1fr;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  height: 100vh;
+  background-color: aquamarine;
 }
+
+header {
+  align-content: flex-end;
+  display: flex;
+  grid-row: 1 / span 1;
+  justify-content: space-between;
+  margin: 0 50px 0 50px;
+}
+
+.left-header {
+  align-self: flex-end;
+  padding: 0 0 15px 0;
+}
+
+.date, .time {
+  margin: 2px 0 0 0;
+  padding: 0;  
+}
+
+.date {
+  font-size: 2rem; 
+}
+
+.time {
+  font-size: 1.75rem; 
+}
+
+.big-temp {
+  font-weight: 300;
+  font-size: 12rem; 
+  margin: 0;
+}
+
+
+.icon, .conditions {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.icon {
+  grid-row: 2 / span 1;
+}
+
+.big-icon {
+  height: 500px;
+}
+
+.conditions {
+  grid-row: 3 / span 1;
+}
+
+.string-conditions {
+  align-self: center;
+  font-size: 5rem;
+  font-weight: 400;
+  margin: 0;
+}
+

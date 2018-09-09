@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import './Controller.css';
 
 class Controller extends Component {
   constructor() {
@@ -8,6 +9,12 @@ class Controller extends Component {
       location: ''
     }
   }
+
+addLocation = () => {
+  this.setState({
+    location: ''
+  })
+}
   
 
   render() {
@@ -15,27 +22,27 @@ class Controller extends Component {
       <section>
         {
         !this.state.location &&
-        <form onSubmit={(event) => {
+        <form autoComplete='off' onSubmit={(event) => {
           event.preventDefault();
-          console.log(event.target.elements.location.value)
           this.setState({
             location: event.target.elements.location.value
-        }, this.props.fetchWeather(event.target.elements.location.value))
+        }, )
+        // this.props.fetchWeather(event.target.elements.location.value)
           // console.log(this.state.location)
         }}
         >
         <input
           type='text'
           name='location'
-          placeholder='Enter your location'
+          placeholder='Add your location'
         />
-        <button>Enter</button>
+      
       </form>
         }
 
         {
         this.state.location &&
-        <article>
+        <article onClick={this.changeLocation} className='location'>
           {this.state.location}
         </article>
         }
