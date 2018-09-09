@@ -22,7 +22,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-   
+  //  conditional for localStorage
+  // 
 
     // fetchWeather();
   }

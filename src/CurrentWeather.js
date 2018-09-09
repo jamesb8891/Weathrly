@@ -21,7 +21,7 @@ const CurrentWeather = (props) => {
       <img className='big-icon'src={WeatherIcons[props.currentWeather.icon]} alt=''/>
     </section>
     <section className='conditions'>
-    <p className='string-conditions'>{props.currentWeather.weather}</p>
+    <p className='string-conditions'>{props.currentWeather.weather}...Gun's out!</p>
     </section>
     </div>
   )
