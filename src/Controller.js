@@ -11,6 +11,7 @@ class Controller extends Component {
   }
 
 addLocation = () => {
+  console.log('hey');
   this.setState({
     location: ''
   })
@@ -28,7 +29,6 @@ addLocation = () => {
             location: event.target.elements.location.value
         }, )
         // this.props.fetchWeather(event.target.elements.location.value)
-          // console.log(this.state.location)
         }}
         >
         <input
@@ -42,7 +42,7 @@ addLocation = () => {
 
         {
         this.state.location &&
-        <article onClick={this.changeLocation} className='location'>
+        <article onClick={this.addLocation} className='location'>
           {this.state.location}
         </article>
         }
@@ -52,11 +52,3 @@ addLocation = () => {
 }
 
 export default Controller;
-
-// {/* <header className="App-header">
-//   <img src={logo} className="App-logo" alt="logo" />
-//   <h1 className="App-title">Welcome to React</h1>
-// </header>
-// <p className="App-intro">
-//   To get started, edit <code>src/App.js</code> and save to reload.
-// </p> */}
