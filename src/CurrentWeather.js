@@ -10,8 +10,16 @@ const CurrentWeather = (props) => {
     <header>
       <article className='left-header'>
         <Controller fetchWeather={props.fetchWeather}/>
-        <p className='date'>{props.currentWeather.observation_time_rfc822.slice(0, -14)}</p>
-        <p className='time'>{props.currentWeather.observation_time.slice(28, -4)}</p>
+        <div className='date-controller'>
+          <p className='date'>{props.currentWeather.observation_time_rfc822.slice(0, -14)}</p>
+          <button className='prev-day'>-</button>
+          <button className='next-day'>+</button>
+        </div>
+        <div className='time-controller'>
+          <p className='time'>{props.currentWeather.observation_time.slice(28, -4)}</p>
+          <button className='prev-day'>-</button>
+          <button className='next-day'>+</button>
+        </div>
       </article>
       <article className='right-header'>
         <p className='big-temp'>{props.currentWeather.temp_f.toFixed(0)}˚</p>

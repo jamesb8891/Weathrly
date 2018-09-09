@@ -28,6 +28,10 @@ class App extends Component {
     // fetchWeather();
   }
 
+  controlPeriod = () => {
+
+  }
+
   fetchWeather = (location) => {
     this.setState({
       location
