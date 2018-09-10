@@ -24,7 +24,7 @@ header {
   display: flex;
 }
 
-.prev-day, .next-day {
+.prev-day, .next-day, .prev-hour, .next-hour {
   font-size: 1rem;
   align-self: center;
   border: 1px solid black;
@@ -34,11 +34,11 @@ header {
   padding: 0 0 1px 0;
 }
 
-.prev-day {
-  margin-left: 40px;
+.prev-day, .prev-hour {
+  margin-left: 15px;
 }
 
-.next-day {
+.next-day, .next-hour {
   margin-left: 15px;
 }
 
@@ -50,10 +50,12 @@ header {
 .date {
   font-size: 2rem; 
   display: inline-block;
+  width: 270px;
 }
 
 .time {
   font-size: 1.75rem; 
+  width: 125px;
 }
 
 .big-temp {

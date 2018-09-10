@@ -21,21 +21,45 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-  //  conditional for localStorage
-  // 
+  // componentDidMount() {
+  // }
 
-    // fetchWeather();
+  addLocation = () => {
+    console.log('fire');
+    this.setState({
+      location: ''
+    })
   }
 
-  controlPeriod = () => {
 
+  controlPeriod = (event) => {
+    console.log(event.target.className)
+    switch (event.target.className) {
+      case 'prev-hour' :
+        let minusHour = this.state.hourlyPeriod - 1;
+        this.setState({ hourlyPeriod: minusHour });
+        break;
+      case 'next-hour' :
+        let plusHour = this.state.hourlyPeriod + 1;
+        this.setState({ hourlyPeriod: plusHour });
+        break;
+      case 'prev-day' :
+        let minusDay = this.state.dailyPeriod - 1;
+        this.setState({ dailyPeriod: minusDay });
+        break;
+      case 'next-day' :
+        let plusDay = this.state.dailyPeriod + 1;
+        this.setState({ dailyPeriod: plusDay} );
+        break;
+      default: return;
+    } 
   }
+
+  // fetchZipCode = (zipCode) => {
+
+  // }
 
   fetchWeather = (location) => {
-    this.setState({
-      location
-    })
     
     let fetchLocate = location.trim().split(',');
     let state = fetchLocate[1];
@@ -45,6 +69,7 @@ class App extends Component {
       .then(data => data.json())
       .then(data => {
         this.setState({
+          location: data.current_observation.display_location.full,
           currentWeather: data.current_observation,
           hourlyWeather: data.hourly_forecast,
           dailyWeather: data.forecast.simpleforecast.forecastday
@@ -62,19 +87,36 @@ class App extends Component {
       <section className='App'>
       {
         this.state.hourlyPeriod + this.state.dailyPeriod === 0 &&
-        <CurrentWeather fetchWeather={this.fetchWeather} 
+        <CurrentWeather 
+        location={this.state.location}
+        fetchWeather={this.fetchWeather}
+        addLocation={this.addLocation}
+        hourPeriod={this.state.hourlyPeriod}
+        dailyPeriod={this.state.dailyPeriod}
+        controlPeriod={this.controlPeriod} 
         currentWeather={this.state.currentWeather}
         />  
       }
       {
         this.state.hourlyPeriod > 0 &&
-        <HourlyWeather fetchWeather={this.fetchWeather} 
+        <HourlyWeather fetchWeather={this.fetchWeather}
+        location={this.state.location}
+        addLocation={this.addLocation}
+        hourPeriod={this.state.hourlyPeriod}
+
+        controlPeriod={this.controlPeriod} 
         hourlyWeather={this.state.hourlyWeather[this.state.hourlyPeriod]}
         />  
       }
       {
         this.state.dailyPeriod > 0 &&
-        <DailyWeather fetchWeather={this.fetchWeather} 
+        <DailyWeather 
+        location={this.state.location}
+        addLocation={this.addLocation}
+        fetchWeather={this.fetchWeather}
+       
+        dailyPeriod={this.state.dailyPeriod}
+        controlPeriod={this.controlPeriod} 
         dailyWeather={this.state.dailyWeather[this.state.dailyPeriod]}
         />  
       }
