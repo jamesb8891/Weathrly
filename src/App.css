@@ -1,7 +1,7 @@
 .main {
   display: grid;
-  grid-template-rows: 225px 500px 1fr;
-  font-family: 'Open Sans', sans-serif;
+  grid-template-rows: 215px 420px 1fr;
+  font-family: "Open Sans", sans-serif;
   font-weight: 300;
   height: 100vh;
   background-color: rgba(255, 217, 0, 0.885);
@@ -17,14 +17,17 @@ header {
 
 .left-header {
   align-self: flex-end;
-  padding: 0 0 12px 0;
 }
 
-.date-controller, .time-controller {
+.date-controller,
+.time-controller {
   display: flex;
 }
 
-.prev-day, .next-day, .prev-hour, .next-hour {
+.prev-day,
+.next-day,
+.prev-hour,
+.next-hour {
   font-size: 1rem;
   align-self: center;
   border: 1px solid black;
@@ -34,38 +37,41 @@ header {
   padding: 0 0 1px 0;
 }
 
-.prev-day, .prev-hour {
+.prev-day,
+.prev-hour {
   margin-left: 15px;
 }
 
-.next-day, .next-hour {
+.next-day,
+.next-hour {
   margin-left: 15px;
 }
 
-.date, .time {
+.date,
+.time {
   margin: 0 0 0 0;
-  padding: 0;  
+  padding: 0;
 }
 
 .date {
-  font-size: 2rem; 
+  font-size: 2rem;
   display: inline-block;
   width: 270px;
 }
 
 .time {
-  font-size: 1.75rem; 
+  font-size: 1.75rem;
   width: 125px;
 }
 
 .big-temp {
   font-weight: 300;
-  font-size: 12rem; 
+  font-size: 12rem;
   margin: 0;
 }
 
-
-.icon, .conditions {
+.icon,
+.conditions {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -76,7 +82,7 @@ header {
 }
 
 .big-icon {
-  height: 500px;
+  height: 450px;
 }
 
 .conditions {
@@ -89,4 +95,3 @@ header {
   font-weight: 400;
   margin: 0;
 }
-
