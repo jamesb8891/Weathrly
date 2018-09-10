@@ -1,55 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
 
+import './Controller.css';
 
-class Controller extends Component {
-  constructor() {
-    super();
-    this.state = {
-      location: ''
-    }
-  }
-  
-
-  render() {
-    return (
+const Controller = (props) => {
+    console.log('controller render');
+    return ( 
       <section>
         {
-        !this.state.location &&
-        <form onSubmit={(event) => {
+        !props.location &&
+        <form autoComplete='off' onSubmit={(event) => {
           event.preventDefault();
-          console.log(event.target.elements.location.value)
-          this.setState({
-            location: event.target.elements.location.value
-        }, this.props.fetchWeather(event.target.elements.location.value))
-          // console.log(this.state.location)
+          if (event.target.elements.location.value.length === 5) {
+            props.fetchZipCode(event.target.elements.location.value)
+          } else {
+            let targetLocation = event.target.elements.location.value;
+            targetLocation = targetLocation.split(',');
+            targetLocation[1] = targetLocation[1].trim();
+            let location = `${targetLocation[1]}/${targetLocation[0]}`
+            props.fetchWeather(location)
+          }
         }}
         >
-        <input
+        <input 
           type='text'
           name='location'
-          placeholder='Enter your location'
+          placeholder='Add your location'
         />
-        <button>Enter</button>
       </form>
         }
 
         {
-        this.state.location &&
-        <article>
-          {this.state.location}
+        props.location &&
+        <article onClick={props.addLocation} className='location'>
+          {props.location}
         </article>
         }
       </section>
     );
-  }
+  
 }
 
 export default Controller;
-
-// {/* <header className="App-header">
-//   <img src={logo} className="App-logo" alt="logo" />
-//   <h1 className="App-title">Welcome to React</h1>
-// </header>
-// <p className="App-intro">
-//   To get started, edit <code>src/App.js</code> and save to reload.
-// </p> */}
