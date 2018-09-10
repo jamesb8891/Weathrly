@@ -8,7 +8,11 @@ const dailyWeather = (props) => {
     <div className='main'>
     <header>
       <article className='left-header'>
-        <Controller fetchWeather={props.fetchWeather} location={props.location}/>
+        <Controller 
+        fetchWeather={props.fetchWeather} 
+        location={props.location}
+        fetchZipCode={props.fetchZipCode}
+        />
         <div className='date-controller'>
           <p className='date'>{props.dailyWeather.date.weekday_short},
             <span> {props.dailyWeather.date.monthname_short}</span>
@@ -28,7 +32,7 @@ const dailyWeather = (props) => {
       <img className='big-icon'src={WeatherIcons[props.dailyWeather.icon]} alt=''/> 
     </section>
     <section className='conditions'>
-    <p className='string-conditions'>{props.dailyWeather.conditions}</p>
+      <p className='string-conditions'>{props.dailyWeather.conditions}</p>
     </section>
     </div>
   )

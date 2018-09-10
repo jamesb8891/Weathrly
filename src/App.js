@@ -21,11 +21,11 @@ class App extends Component {
     }
   }
 
-  // componentDidMount() {
-  // }
+  componentDidMount() {
+
+  }
 
   addLocation = () => {
-    console.log('fire');
     this.setState({
       location: ''
     })
@@ -54,17 +54,21 @@ class App extends Component {
     } 
   }
 
-  // fetchZipCode = (zipCode) => {
-
-  // }
+  fetchZipCode = (zipCode) => {
+    fetch(`http://api.wunderground.com/api/${APIKey}/geolookup/q/${zipCode}.json`)
+      .then(data => data.json())
+      .then(data => {
+        let location = `${data.location.state}/${data.location.city}`;
+        this.fetchWeather(location);
+      })
+      .catch(error => {
+        console.log(error);
+        throw new Error(error);
+      })
+  }
 
   fetchWeather = (location) => {
-    // move this manipulation to controller
-    let fetchLocate = location.trim().split(',');
-    let state = fetchLocate[1];
-    let states = state.trim();
-
-    fetch(`https://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${states}/${fetchLocate[0]}.json`)
+    fetch(`https://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${location}.json`)
       .then(data => data.json())
       .then(data => {
         this.setState({
@@ -80,6 +84,10 @@ class App extends Component {
       })
   }
 
+  getLocalStorage = (key) => {
+    
+  }
+
   
   render() {
     return (
@@ -89,6 +97,7 @@ class App extends Component {
         <CurrentWeather 
         location={this.state.location}
         fetchWeather={this.fetchWeather}
+        fetchZipCode={this.fetchZipCode}
         addLocation={this.addLocation}
         hourPeriod={this.state.hourlyPeriod}
         dailyPeriod={this.state.dailyPeriod}
@@ -103,7 +112,7 @@ class App extends Component {
         location={this.state.location}
         addLocation={this.addLocation}
         hourPeriod={this.state.hourlyPeriod}
-
+        fetchZipCode={this.fetchZipCode}
         controlPeriod={this.controlPeriod} 
         hourlyWeather={this.state.hourlyWeather[this.state.hourlyPeriod]}
         />  
@@ -114,7 +123,7 @@ class App extends Component {
         location={this.state.location}
         addLocation={this.addLocation}
         fetchWeather={this.fetchWeather}
-       
+        fetchZipCode={this.fetchZipCode}
         dailyPeriod={this.state.dailyPeriod}
         controlPeriod={this.controlPeriod} 
         dailyWeather={this.state.dailyWeather[this.state.dailyPeriod]}

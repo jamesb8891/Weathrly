@@ -10,7 +10,12 @@ const CurrentWeather = (props) => {
     <div className='main'>
     <header>
       <article className='left-header'>
-        <Controller location={props.location} fetchWeather={props.fetchWeather} addLocation={props.addLocation}/>
+        <Controller 
+          location={props.location} 
+          fetchWeather={props.fetchWeather} 
+          fetchZipCode={props.fetchZipCode}
+          addLocation={props.addLocation}
+          />
         <div className='date-controller'>
           <p className='date'>{props.hourlyWeather.FCTTIME.weekday_name_abbrev},
             <span> {props.hourlyWeather.FCTTIME.month_name_abbrev}</span>
@@ -21,7 +26,7 @@ const CurrentWeather = (props) => {
           <button onClick={props.controlPeriod} className='next-day'>+</button>
         </div>
         <div className='time-controller'>
-          <p className='time'>{props.currentWeather.observation_time.slice(28, -4)}</p>
+          <p className='time'>{props.currentWeather.observation_time.slice(29, -4)}</p>
           <button onClick={props.controlPeriod} className='prev-hour'>-</button>
           <button onClick={props.controlPeriod} className='next-hour'>+</button>
         </div>

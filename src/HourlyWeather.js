@@ -8,7 +8,11 @@ const hourlyWeather = (props) => {
     <div className='main'>
     <header>
       <article className='left-header'>
-        <Controller fetchWeather={props.fetchWeather} location={props.location}/>
+        <Controller 
+        fetchWeather={props.fetchWeather} 
+        location={props.location}
+        fetchZipCode={props.fetchZipCode}
+        />
           <p className='date'>{props.hourlyWeather.FCTTIME.weekday_name_abbrev},
             <span> {props.hourlyWeather.FCTTIME.month_name_abbrev}</span>
             <span> {props.hourlyWeather.FCTTIME.mday}</span>
@@ -21,14 +25,14 @@ const hourlyWeather = (props) => {
         </div>
       </article>
       <article className='right-header'>
-        <p className='big-temp'>{props.hourlyWeather.temp.english}˚</p>
+        <p className='big-temp'>{props.hourlyWeather.temp.english.slice(0, -2)}˚</p>
       </article>
     </header>
     <section className='icon'>
       <img className='big-icon'src={WeatherIcons[props.hourlyWeather.icon]} alt=''/>
     </section>
     <section className='conditions'>
-    <p className='string-conditions'>{props.hourlyWeather.condition}</p>
+      <p className='string-conditions'>{props.hourlyWeather.condition}</p>
     </section>
     </div>
   )
