@@ -21,7 +21,7 @@ const hourlyWeather = (props) => {
         </div>
       </article>
       <article className='right-header'>
-        <p className='big-temp'>{props.hourlyWeather.temp.english.slice(0, -2)}˚</p>
+        <p className='big-temp'>{props.hourlyWeather.temp.english}˚</p>
       </article>
     </header>
     <section className='icon'>

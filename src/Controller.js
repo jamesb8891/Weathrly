@@ -4,8 +4,7 @@ import './Controller.css';
 
 const Controller = (props) => {
   
-    return (
-      
+    return ( 
       <section>
         {
         !props.location &&

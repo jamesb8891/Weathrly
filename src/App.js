@@ -33,7 +33,6 @@ class App extends Component {
 
 
   controlPeriod = (event) => {
-    console.log(event.target.className)
     switch (event.target.className) {
       case 'prev-hour' :
         let minusHour = this.state.hourlyPeriod - 1;
@@ -60,7 +59,7 @@ class App extends Component {
   // }
 
   fetchWeather = (location) => {
-    
+    // move this manipulation to controller
     let fetchLocate = location.trim().split(',');
     let state = fetchLocate[1];
     let states = state.trim();
@@ -95,6 +94,7 @@ class App extends Component {
         dailyPeriod={this.state.dailyPeriod}
         controlPeriod={this.controlPeriod} 
         currentWeather={this.state.currentWeather}
+        hourlyWeather={this.state.hourlyWeather[0]}
         />  
       }
       {

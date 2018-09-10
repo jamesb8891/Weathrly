@@ -12,7 +12,11 @@ const CurrentWeather = (props) => {
       <article className='left-header'>
         <Controller location={props.location} fetchWeather={props.fetchWeather} addLocation={props.addLocation}/>
         <div className='date-controller'>
-          <p className='date'>{props.currentWeather.observation_time_rfc822.slice(0, -14)}</p>
+          <p className='date'>{props.hourlyWeather.FCTTIME.weekday_name_abbrev},
+            <span> {props.hourlyWeather.FCTTIME.month_name_abbrev}</span>
+            <span> {props.hourlyWeather.FCTTIME.mday}</span>
+            <span> {props.hourlyWeather.FCTTIME.year}</span>
+          </p>
           <button onClick={props.controlPeriod} className='prev-day'>-</button>
           <button onClick={props.controlPeriod} className='next-day'>+</button>
         </div>
