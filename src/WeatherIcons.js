@@ -14,7 +14,18 @@ const WeatherIcons = {
   snow: './assets/wicon/snow.svg',
   nt_snow: './assets/wicon/snow.svg',
   chancesnow: './assets/wicon/snow.svg',
-  nt_chancesnow: './assets/wicon/snow.svg'
+  nt_chancesnow: './assets/wicon/snow.svg',
+  chancetstorms: './assets/wicon/thunder.svg',
+  tstorms: './assets/wicon/thunder.svg',
+  chanceflurries: './assets/wicon/snow.svg',
+  chancesleet: './assets/wicon/snow.svg',
+  flurries: './assets/wicon/snow.svg',
+  fog: './assets/wicon/partlycloudy.svg',
+  hazy: './assets/wicon/sun.svg',
+  mostlysunny: './assets/wicon/partlycloudy.svg',
+  partlysunny: './assets/wicon/partlycloudy.svg',
+  sleet: './assets/wicon/snow.svg',
+  unknown: './assets/wicon/thunder.svg'
 };
 
 export default WeatherIcons;

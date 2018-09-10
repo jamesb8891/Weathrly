@@ -22,7 +22,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    if(this.getLocalStorage()) {
+      this.fetchWeather(this.getLocalStorage());
+    } else {
+      this.fetchWeather('autoip');
+    }
+  
   }
 
   addLocation = () => {
@@ -77,6 +82,7 @@ class App extends Component {
           hourlyWeather: data.hourly_forecast,
           dailyWeather: data.forecast.simpleforecast.forecastday
         })
+        this.setLocalStorage(location);
       })
       .catch(error => {
         console.log(error);
@@ -84,8 +90,13 @@ class App extends Component {
       })
   }
 
-  getLocalStorage = (key) => {
-    
+  setLocalStorage = (location) => {
+    localStorage.setItem('weatherly', location);
+  }
+
+  getLocalStorage = () => {
+    const storedLocation = localStorage.getItem('weatherly');
+    return storedLocation;
   }
 
   

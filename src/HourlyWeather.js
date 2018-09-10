@@ -4,6 +4,7 @@ import Controller from './Controller';
 import WeatherIcons from './WeatherIcons';
 
 const hourlyWeather = (props) => {
+  console.log(props)
   return (
     <div className='main'>
     <header>
@@ -22,6 +23,7 @@ const hourlyWeather = (props) => {
         <p className='time'>{props.hourlyWeather.FCTTIME.civil}</p>
           <button onClick={props.controlPeriod} className='prev-hour'>-</button>
           <button onClick={props.controlPeriod} className='next-hour'>+</button>
+          
         </div>
       </article>
       <article className='right-header'>

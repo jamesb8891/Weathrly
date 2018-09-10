@@ -3,6 +3,7 @@ import React from 'react';
 import './Controller.css';
 
 const Controller = (props) => {
+    console.log('controller render');
     return ( 
       <section>
         {
@@ -20,7 +21,7 @@ const Controller = (props) => {
           }
         }}
         >
-        <input
+        <input 
           type='text'
           name='location'
           placeholder='Add your location'

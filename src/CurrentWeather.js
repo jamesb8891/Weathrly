@@ -22,12 +22,10 @@ const CurrentWeather = (props) => {
             <span> {props.hourlyWeather.FCTTIME.mday}</span>
             <span> {props.hourlyWeather.FCTTIME.year}</span>
           </p>
-          <button onClick={props.controlPeriod} className='prev-day'>-</button>
           <button onClick={props.controlPeriod} className='next-day'>+</button>
         </div>
         <div className='time-controller'>
           <p className='time'>{props.currentWeather.observation_time.slice(29, -4)}</p>
-          <button onClick={props.controlPeriod} className='prev-hour'>-</button>
           <button onClick={props.controlPeriod} className='next-hour'>+</button>
         </div>
       </article>
