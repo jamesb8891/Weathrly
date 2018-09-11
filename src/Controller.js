@@ -5,7 +5,7 @@ import './Controller.css';
 const Controller = (props) => {
     console.log('controller render');
     return ( 
-      <section>
+      <section className='controller'>
         {
         !props.location &&
         <form autoComplete='off' onSubmit={(event) => {

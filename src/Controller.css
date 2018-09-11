@@ -1,3 +1,7 @@
+.controller {
+  cursor: pointer;
+}
+
 input {
   background: transparent;
   border: none;

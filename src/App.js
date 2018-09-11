@@ -13,21 +13,20 @@ class App extends Component {
     super();
     this.state = {
       location: '',
-      currentWeather: mockData.current_observation,
-      hourlyWeather: mockData.hourly_forecast,
+      currentWeather: null,
+      hourlyWeather: null,
       hourlyPeriod: 0,
-      dailyWeather: mockData.forecast.simpleforecast.forecastday,
+      dailyWeather: null,
       dailyPeriod: 0,
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     if(this.getLocalStorage()) {
       this.fetchWeather(this.getLocalStorage());
     } else {
       this.fetchWeather('autoip');
     }
-  
   }
 
   addLocation = () => {
@@ -102,6 +101,7 @@ class App extends Component {
   
   render() {
     return (
+      this.state.currentWeather &&
       <section className='App'>
       {
         this.state.hourlyPeriod + this.state.dailyPeriod === 0 &&
