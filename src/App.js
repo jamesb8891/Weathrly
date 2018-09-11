@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import Trie from './Trie';
 import CurrentWeather from './CurrentWeather';
 import HourlyWeather from './HourlyWeather';
 import DailyWeather from './DailyWeather';
-
+import cityData from './CityData.js';
 import APIKey from './APIKey'
-import mockData from './Data';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       location: '',
+      trie: null,
+      answer: null,
       currentWeather: null,
       hourlyWeather: null,
       hourlyPeriod: 0,
@@ -22,6 +24,9 @@ class App extends Component {
   }
 
   componentWillMount() {
+    let trie = new Trie();
+    trie.populate(cityData.data); 
+    this.setState({ trie: trie })
     if(this.getLocalStorage()) {
       this.fetchWeather(this.getLocalStorage());
     } else {
@@ -35,6 +40,10 @@ class App extends Component {
     })
   }
 
+  suggestLocation = (string) => {
+    let answer = this.state.trie.suggest(string).slice(0, 10);
+    this.setState({ answer: answer })
+  }
 
   controlPeriod = (event) => {
     switch (event.target.className) {
@@ -109,12 +118,14 @@ class App extends Component {
         location={this.state.location}
         fetchWeather={this.fetchWeather}
         fetchZipCode={this.fetchZipCode}
+        suggestLocation={this.suggestLocation}
         addLocation={this.addLocation}
         hourPeriod={this.state.hourlyPeriod}
         dailyPeriod={this.state.dailyPeriod}
         controlPeriod={this.controlPeriod} 
         currentWeather={this.state.currentWeather}
         hourlyWeather={this.state.hourlyWeather[0]}
+        answer={this.state.answer}
         />  
       }
       {

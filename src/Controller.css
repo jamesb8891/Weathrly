@@ -3,6 +3,7 @@
 }
 
 input {
+  z-index: 998;
   background: transparent;
   border: none;
   font-family: 'Open Sans', sans-serif;
@@ -21,6 +22,14 @@ button:focus {
 ::placeholder {
   color: black;
   font-weight: 300;
+}
+
+option {
+
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
 }
 
 button {

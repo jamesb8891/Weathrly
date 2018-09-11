@@ -3,7 +3,6 @@ import React from 'react';
 import './Controller.css';
 
 const Controller = (props) => {
-    console.log('controller render');
     return ( 
       <section className='controller'>
         {
@@ -21,17 +20,31 @@ const Controller = (props) => {
           }
         }}
         >
-        <input 
+        <input onChange={(event) => {
+          event.preventDefault();
+          
+          props.suggestLocation(event.target.value);
+        }}
           type='text'
           name='location'
+          list='data'
+          
           placeholder='Add your location'
         />
+
+        <datalist id="data">
+          {
+            props.answer &&
+            props.answer.map((item, index) =>
+            <option value={item} key={index}/>
+          )}
+        </datalist>
       </form>
         }
 
         {
         props.location &&
-        <article onClick={props.addLocation} className='location'>
+        <article className='controller' onClick={props.addLocation} className='location'>
           {props.location}
         </article>
         }
