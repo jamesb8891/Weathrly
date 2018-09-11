@@ -5,9 +5,6 @@ import './Controller.css';
 const Controller = (props) => {
     return ( 
       <section className='controller'>
-        <div className='autosearch'>
-          poop
-        </div>
         {
         !props.location &&
         <form autoComplete='off' onSubmit={(event) => {

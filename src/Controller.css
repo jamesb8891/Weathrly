@@ -2,11 +2,6 @@
   cursor: pointer;
 }
 
-.autosearch {
-  z-index: 999;
-  background-color: blue;
-}
-
 input {
   z-index: 998;
   background: transparent;
