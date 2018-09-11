@@ -3,9 +3,11 @@ import React from 'react';
 import './Controller.css';
 
 const Controller = (props) => {
-    console.log('controller render');
     return ( 
       <section className='controller'>
+        <div className='autosearch'>
+          poop
+        </div>
         {
         !props.location &&
         <form autoComplete='off' onSubmit={(event) => {
@@ -21,11 +23,25 @@ const Controller = (props) => {
           }
         }}
         >
-        <input 
+        <input onChange={(event) => {
+          event.preventDefault();
+          
+          props.suggestLocation(event.target.value);
+        }}
           type='text'
           name='location'
+          list='data'
+          
           placeholder='Add your location'
         />
+
+        <datalist id="data">
+          {
+            props.answer &&
+            props.answer.map((item, index) =>
+            <option value={item} key={index}/>
+          )}
+        </datalist>
       </form>
         }
 

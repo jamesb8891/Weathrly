@@ -15,6 +15,8 @@ const CurrentWeather = (props) => {
           fetchWeather={props.fetchWeather} 
           fetchZipCode={props.fetchZipCode}
           addLocation={props.addLocation}
+          suggestLocation={props.suggestLocation}
+          answer={props.answer}
           />
         <div className='date-controller'>
           <p className='date'>{props.hourlyWeather.FCTTIME.weekday_name_abbrev},
