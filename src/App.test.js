@@ -21,18 +21,23 @@ describe("App", () => {
 
   it("initially should have a state of location set to an empty string", () => {
     expect(wrapper.state()).toEqual({
-      location: '', currentWeather: null, hourlyWeather: null, hourlyPeriod: 0, dailyWeather: null, dailyPeriod: 0,
+      location: '', 
+      trie: null,
+      answer: null,
+      currentWeather: null, 
+      hourlyWeather: null, 
+      hourlyPeriod: 0, 
+      dailyWeather: null, 
+      dailyPeriod: 0,
     });
   });
 
   it("should retrieve data from local storage", () => {
-    const location = [
-      { title: 'location', id: 1 }
-    ];
+    const location = 'CO/Denver';
 
-    // localStorage.setItem(location, location);
+    localStorage.setItem('weatherly', location);
+    const itemsInStorage = localStorage.getItem("weatherly");
 
-    wrapper = mount(<App />);
-    expect(wrapper.state()).toEqual({ "currentWeather": null, "dailyPeriod": 0, "dailyWeather": null, "hourlyPeriod": 0, "hourlyWeather": null, "location": "" });
+    expect(itemsInStorage).toEqual('CO/Denver');
   });
 })
