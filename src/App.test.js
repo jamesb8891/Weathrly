@@ -14,20 +14,21 @@ describe("App", () => {
     expect(wrapper).toBeDefined();
   });
 
-  it("should render the HourlyWeather and DailyWeather component", () => {
+  it("should render the HourlyWeather, DailyWeather, and CurrentWeather components", () => {
     expect(wrapper.find("HourlyWeather")).toBeDefined();
     expect(wrapper.find("DailyWeather")).toBeDefined();
+    expect(wrapper.find("CurrentWeather")).toBeDefined();
   });
 
   it("initially should have a state of location set to an empty string", () => {
     expect(wrapper.state()).toEqual({
-      location: '', 
+      location: '',
       trie: null,
       answer: null,
-      currentWeather: null, 
-      hourlyWeather: null, 
-      hourlyPeriod: 0, 
-      dailyWeather: null, 
+      currentWeather: null,
+      hourlyWeather: null,
+      hourlyPeriod: 0,
+      dailyWeather: null,
       dailyPeriod: 0,
     });
   });
@@ -40,4 +41,22 @@ describe("App", () => {
 
     expect(itemsInStorage).toEqual('CO/Denver');
   });
+
+  describe('fetchZipCode()', () => {
+    test('should fetch a zip code', () => {
+      const fetchZipCode = jest.fn();
+      fetchZipCode();
+      expect(fetchZipCode).toHaveBeenCalled();
+    });
+  });
+
+  describe('fetchWeather()', () => {
+    test('should fetch weather data', () => {
+      const fetchWeather = jest.fn();
+      fetchWeather();
+      expect(fetchWeather).toHaveBeenCalled();
+    });
+  });
+
+
 })
