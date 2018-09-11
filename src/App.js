@@ -7,9 +7,6 @@ import HourlyWeather from './HourlyWeather';
 import DailyWeather from './DailyWeather';
 import cityData from './CityData.js';
 import APIKey from './APIKey'
-// let trie = new Trie();
-// trie.populate(cityData.data);
-// console.log(trie);
 
 class App extends Component {
   constructor() {
