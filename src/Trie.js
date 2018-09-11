@@ -13,7 +13,6 @@ export default class Trie {
   insert(word) {
     let currNode = this.root;
     let wordArray = [...word];
-
     this.insertRecursive(wordArray, currNode);
     this.totalWords++;
   }
@@ -39,12 +38,19 @@ export default class Trie {
 
     if (Object.keys(this.root).includes(wordArray[0])) {
       let path = wordArray.reduce((key, letter) => {
-        return key[letter];
+        if (key[letter]) {
+          return key[letter]
+        } else {
+          return false;
+        }
       }, this.root);
+      if (path === undefined) {
+        return [];
+      }
 
       return this.returnWords(path, string);
     } else {
-      return "no word exists";
+      return [];
     }
   }
 

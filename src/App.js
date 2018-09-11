@@ -44,7 +44,8 @@ class App extends Component {
   }
 
   suggestLocation = (string) => {
-    this.setState({ answer: this.state.trie.suggest(string).slice(0, 10) })
+    let answer = this.state.trie.suggest(string).slice(0, 10);
+    this.setState({ answer: answer })
   }
 
   controlPeriod = (event) => {

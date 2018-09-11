@@ -44,7 +44,7 @@ const Controller = (props) => {
 
         {
         props.location &&
-        <article onClick={props.addLocation} className='location'>
+        <article className='controller' onClick={props.addLocation} className='location'>
           {props.location}
         </article>
         }
