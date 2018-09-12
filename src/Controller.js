@@ -10,7 +10,7 @@ const Controller = (props) => {
         <form autoComplete='off' onSubmit={(event) => {
           event.preventDefault();
           if (event.target.elements.location.value.length === 5) {
-            props.fetchZipCode(event.target.elements.location.value)
+            props.fetchWeather(event.target.elements.location.value)
           } else {
             let targetLocation = event.target.elements.location.value;
             targetLocation = targetLocation.split(',');

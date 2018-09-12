@@ -42,13 +42,15 @@ describe("App", () => {
     expect(itemsInStorage).toEqual('CO/Denver');
   });
 
-  describe('fetchZipCode()', () => {
-    test('should fetch a zip code', () => {
-      const fetchZipCode = jest.fn();
-      fetchZipCode();
-      expect(fetchZipCode).toHaveBeenCalled();
-    });
-  });
+  
+
+  // describe('fetchZipCode()', () => {
+  //   test('should fetch a zip code', () => {
+  //     const fetchZipCode = jest.fn();
+  //     fetchZipCode();
+  //     expect(fetchZipCode).toHaveBeenCalled();
+  //   });
+  // });
 
   describe('fetchWeather()', () => {
     test('should fetch weather data', () => {
