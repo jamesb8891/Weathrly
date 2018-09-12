@@ -20,6 +20,7 @@ class App extends Component {
       hourlyPeriod: 0,
       dailyWeather: null,
       dailyPeriod: 0,
+      color: 'red',
     }
   }
 
@@ -41,8 +42,36 @@ class App extends Component {
   }
 
   suggestLocation = (string) => {
+    if (!isNaN(string)) {return};
     let answer = this.state.trie.suggest(string).slice(0, 10);
     this.setState({ answer: answer })
+  }
+  
+  fetchWeather = (location) => {
+    fetch(`https://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${location}.json`)
+      .then(data => data.json())
+      .then(data => {
+        this.setState({
+          location: data.current_observation.display_location.full,
+          currentWeather: data.current_observation,
+          hourlyWeather: data.hourly_forecast,
+          dailyWeather: data.forecast.simpleforecast.forecastday
+        })
+        this.setLocalStorage(location);
+      })
+      .catch(error => {
+        console.log(error);
+        throw new Error(error);
+      })
+  }
+
+  setLocalStorage = (location) => {
+    localStorage.setItem('weatherly', location);
+  }
+
+  getLocalStorage = () => {
+    const storedLocation = localStorage.getItem('weatherly');
+    return storedLocation;
   }
 
   controlPeriod = (event) => {
@@ -67,53 +96,13 @@ class App extends Component {
     }
   }
 
-  fetchZipCode = (zipCode) => {
-    fetch(`http://api.wunderground.com/api/${APIKey}/geolookup/q/${zipCode}.json`)
-      .then(data => data.json())
-      .then(data => {
-        let location = `${data.location.state}/${data.location.city}`;
-        this.fetchWeather(location);
-      })
-      .catch(error => {
-        console.log(error);
-        throw new Error(error);
-      })
-  }
-
-  fetchWeather = (location) => {
-    // fetch(`https://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${location}.json`)
-    //   .then(data => data.json())
-    //   .then(data => {
-    //     this.setState({
-    //       location: data.current_observation.display_location.full,
-    //       currentWeather: data.current_observation,
-    //       hourlyWeather: data.hourly_forecast,
-    //       dailyWeather: data.forecast.simpleforecast.forecastday
-    //     })
-    //     this.setLocalStorage(location);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //     throw new Error(error);
-    //   })
-  }
-
-  setLocalStorage = (location) => {
-    localStorage.setItem('weatherly', location);
-  }
-
-  getLocalStorage = () => {
-    const storedLocation = localStorage.getItem('weatherly');
-    return storedLocation;
-  }
-
-
   render() {
     return (
       this.state.currentWeather &&
       <section className='App'>
         {
           this.state.hourlyPeriod + this.state.dailyPeriod === 0 &&
+         
           <CurrentWeather
             location={this.state.location}
             fetchWeather={this.fetchWeather}
@@ -149,6 +138,7 @@ class App extends Component {
             dailyPeriod={this.state.dailyPeriod}
             controlPeriod={this.controlPeriod}
             dailyWeather={this.state.dailyWeather[this.state.dailyPeriod]}
+            changeBackground={this.changeBackground}
           />
         }
       </section>
