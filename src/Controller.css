@@ -1,7 +1,3 @@
-.controller {
-  cursor: pointer;
-}
-
 input {
   z-index: 998;
   background: transparent;
@@ -47,4 +43,5 @@ button:hover {
 .location {
   font-size: 4.2rem;
   font-weight: 400;
+  cursor: pointer;
 }
