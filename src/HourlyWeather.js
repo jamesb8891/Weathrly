@@ -4,7 +4,7 @@ import Controller from './Controller';
 import WeatherIcons from './WeatherIcons';
 
 const hourlyWeather = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <div className='main'>
       <header>
