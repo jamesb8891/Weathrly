@@ -42,23 +42,21 @@ describe("App", () => {
     expect(itemsInStorage).toEqual('CO/Denver');
   });
 
-  
-
-  // describe('fetchZipCode()', () => {
-  //   test('should fetch a zip code', () => {
-  //     const fetchZipCode = jest.fn();
-  //     fetchZipCode();
-  //     expect(fetchZipCode).toHaveBeenCalled();
-  //   });
-  // });
-
-  describe('fetchWeather()', () => {
-    test('should fetch weather data', () => {
-      const fetchWeather = jest.fn();
-      fetchWeather();
-      expect(fetchWeather).toHaveBeenCalled();
-    });
+  it('should fetch weather data', () => {
+    const fetchWeather = jest.fn();
+    fetchWeather();
+    expect(fetchWeather).toHaveBeenCalled();
   });
 
+  it('should run suggestLocation', () => {
+    const suggestLocation = jest.fn();
+    suggestLocation();
+    expect(suggestLocation).toHaveBeenCalled();
+  });
 
-})
+  it('should run controlPeriod', () => {
+    const controlPeriod = jest.fn();
+    controlPeriod();
+    expect(controlPeriod).toHaveBeenCalled();
+  });
+});
