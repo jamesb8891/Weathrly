@@ -22,13 +22,11 @@ const Controller = (props) => {
         >
         <input onChange={(event) => {
           event.preventDefault();
-          
           props.suggestLocation(event.target.value);
         }}
           type='text'
           name='location'
           list='data'
-          
           placeholder='Add your location'
         />
 
@@ -41,7 +39,6 @@ const Controller = (props) => {
         </datalist>
       </form>
         }
-
         {
         props.location &&
         <article onClick={props.addLocation} className='location'>
@@ -50,7 +47,6 @@ const Controller = (props) => {
         }
       </section>
     );
-  
 }
 
 export default Controller;
