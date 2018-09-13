@@ -24,9 +24,9 @@ class App extends Component {
   }
 
   componentWillMount() {
-    // let trie = new Trie();
-    // trie.populate(cityData.data); 
-    // this.setState({ trie: trie })
+    let trie = new Trie();
+    trie.populate(cityData.data); 
+    this.setState({ trie: trie })
     if (this.getLocalStorage()) {
       this.fetchWeather(this.getLocalStorage());
     } else {
