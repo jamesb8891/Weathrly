@@ -59,8 +59,7 @@ class App extends Component {
         this.setLocalStorage(location);
       })
       .catch(error => {
-        console.log(error);
-        throw new Error(error);
+        alert('Please enter a valid City, State or Zip Code');
       })
   }
 
