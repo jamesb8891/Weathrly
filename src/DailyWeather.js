@@ -2,7 +2,6 @@ import React from 'react';
 
 import Controller from './Controller';
 import WeatherIcons from './WeatherIcons';
-import backgroundColor from './BackgroundColor';
 
 const dailyWeather = (props) => {
   return (
@@ -37,8 +36,6 @@ const dailyWeather = (props) => {
         <img 
         className='big-icon' 
         src={WeatherIcons[props.dailyWeather.icon]} alt='' />
-        {/* { document.querySelector('.main').style.backgroundImage =`${backgroundColor[props.dailyWeather.icon]}` } */}
-       
       </section>
       <section className='conditions'>
         <p className='string-conditions'>{props.dailyWeather.conditions}</p>

@@ -20,7 +20,6 @@ class App extends Component {
       hourlyPeriod: 0,
       dailyWeather: null,
       dailyPeriod: 0,
-      color: 'red',
     }
   }
 
