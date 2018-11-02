@@ -30,7 +30,7 @@ This project will help us learn how to build React apps and make an api call to 
 - Design and implement our app in React using states and props
 - Implement ES6 classes
 - Implement array iterator and mutator methods to work with Weather Underground data.
-- Write modular, reusable code that follows SRP (Single Responibility Principle)
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
 
 ### Design and Layout
 
